@@ -1,0 +1,104 @@
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Indie+Flower&family=Lora:wght@400;500;600&family=Love+Light&family=Moon+Dance&family=Source+Sans+Pro:wght@300&family=Titillium+Web&family=Vujahday+Script&display=swap');
+
+
+ body{
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     min-height: 100%;
+     background: linear-gradient(45deg, rgba(127,30,193,1) 25%, rgba(253,29,29,1) 82%);
+     //  background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/resources/backimg.jpg);
+     font-family: 'Lora', serif;
+ }
+
+
+@mixin align($textalign,$alignitems,$justifycont){
+    text-align: $textalign;
+    align-items: $alignitems;
+    justify-content: $justifycont;
+}
+
+@mixin buttonhov($backcolor){
+    background-color:$backcolor;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.box{
+    background: linear-gradient(45deg, rgba(127,30,193,1) 25%, rgba(253,29,29,1) 82%);
+    height: 100vh;
+}
+.calcbox{
+    @include align(center,center,center);
+    margin: auto;
+    // width:45%;
+    .resultbox{
+        @include align(right,none,none);
+        text-align: right;
+        width: 40%;
+        border-radius: 0.5rem;
+        padding: 1rem 3rem;
+        margin: auto;
+    }
+    .historybox{
+        margin: 0 1rem;
+        font-size:medium;
+    }
+    .outputbox{
+        padding: 0.1rem 2rem;
+        color: black;
+        font-size: x-large;
+        border: solid black;
+        border-radius: 0.5rem;
+    }
+}
+.buttonbox{
+    @include align(center,center,center);
+    display: flex;
+    .block{
+        padding: 2rem;
+    }
+    .operatorbox{
+        padding: 0.5rem;
+    }
+    .operator{
+        border: 1px solid;
+        border-radius: 50%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        padding: 1rem 1.3rem;
+        // cursor: pointer;
+        &:hover{
+            @include buttonhov(white);
+        }
+    }
+    .button{
+        @include align(center,none,none );
+        cursor: pointer;
+        display: inline;
+        font-size: larger;
+        border-radius: 1rem;
+        width: 20%;
+        padding: 1.5rem 2rem;
+        border: 1px solid;
+        margin: 0.5rem ;
+        // transition: all 0.3s;
+        &:hover{
+            @include buttonhov(white);
+        }
+    }
+    .clearbox{
+        display: block;
+        margin-top: 13rem;
+    }
+    .clear{
+        cursor: pointer;
+        border-radius: 1rem;
+        padding:2rem  1rem;
+        border: 1px solid;
+        &:hover{
+            @include buttonhov(white);
+        }
+    }
+}
