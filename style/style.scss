@@ -1,6 +1,18 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Indie+Flower&family=Lora:wght@400;500;600&family=Love+Light&family=Moon+Dance&family=Roboto+Slab&family=Source+Sans+Pro:wght@300&family=Titillium+Web&family=Vujahday+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Indie+Flower&family=Lora:wght@400;500;600&family=Love+Light&family=Moon+Dance&family=Source+Sans+Pro:wght@300&family=Titillium+Web&family=Vujahday+Script&display=swap');
 
- @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Indie+Flower&family=Lora:wght@400;500;600&family=Love+Light&family=Moon+Dance&family=Source+Sans+Pro:wght@300&family=Titillium+Web&family=Vujahday+Script&display=swap');
+html::-webkit-scrollbar{
+    width: 0.6rem;   
+}
+html::-webkit-scrollbar-track{
+    background-color: black;
+}
+html::-webkit-scrollbar-thumb{
+    background-color:darkred;
+    border-radius: 0.2rem;
+}
+
 
 
  body{
@@ -10,7 +22,8 @@
      min-height: 100%;
      background: linear-gradient(45deg, rgba(127,30,193,1) 25%, rgba(253,29,29,1) 82%);
      //  background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/resources/backimg.jpg);
-     font-family: 'Lora', serif;
+    //  font-family: 'Lora', serif;
+    font-family: 'Roboto Slab', serif;
  }
 
 
@@ -28,77 +41,102 @@
 .box{
     background: linear-gradient(45deg, rgba(127,30,193,1) 25%, rgba(253,29,29,1) 82%);
     height: 100vh;
+    width: 100%;
 }
 .calcbox{
     @include align(center,center,center);
-    margin: auto;
-    // width:45%;
+    margin: 4rem auto;
+    border: solid;
+    border-radius: 1rem;
+    max-width:35%;
+    padding: 1rem;
     .resultbox{
         @include align(right,none,none);
         text-align: right;
-        width: 40%;
         border-radius: 0.5rem;
-        padding: 1rem 3rem;
+        padding: 0 3rem;
         margin: auto;
     }
     .historybox{
-        margin: 0 1rem;
-        font-size:medium;
+        min-height: 2rem;
+        .historytext{
+            font-size:medium;
+            color: rgb(80, 69, 69);
+        }
     }
+    
     .outputbox{
-        padding: 0.1rem 2rem;
-        color: black;
-        font-size: x-large;
-        border: solid black;
-        border-radius: 0.5rem;
-    }
-}
-.buttonbox{
-    @include align(center,center,center);
-    display: flex;
-    .block{
-        padding: 2rem;
-    }
-    .operatorbox{
-        padding: 0.5rem;
-    }
-    .operator{
-        border: 1px solid;
-        border-radius: 50%;
-        text-align: center;
-        margin-bottom: 1.5rem;
-        padding: 1rem 1.3rem;
-        // cursor: pointer;
-        &:hover{
-            @include buttonhov(white);
+        min-height: 3rem;
+        .outputtext{
+            color: black;
+            font-size: x-large;
+            font-weight: bolder;
         }
     }
-    .button{
-        @include align(center,none,none );
-        cursor: pointer;
-        display: inline;
-        font-size: larger;
-        border-radius: 1rem;
-        width: 20%;
-        padding: 1.5rem 2rem;
-        border: 1px solid;
-        margin: 0.5rem ;
-        // transition: all 0.3s;
-        &:hover{
-            @include buttonhov(white);
+    .break{
+        background-color: black;
+        height: 1px;
+        width: 100%;
+    }
+    .buttonbox{
+        
+        @include align(center,center,center);
+        display: flex;
+        .block{
+            justify-content: space-between;
+            // padding: 2rem;
+            margin: 1rem;
+            .equal{
+                padding: 1rem 1.2rem;
+            }
         }
-    }
-    .clearbox{
-        display: block;
-        margin-top: 13rem;
-    }
-    .clear{
-        cursor: pointer;
-        border-radius: 1rem;
-        padding:2rem  1rem;
-        border: 1px solid;
-        &:hover{
-            @include buttonhov(white);
+        .operatorbox{
+            @include align(center,center ,center );
+            padding: 0.5rem;
+        }
+        .operator{
+            border: 2px solid;
+            border-radius: 50%;
+            text-align: center;
+            margin: 1rem auto;
+            padding: 1rem 1.3rem;
+            transform: scale(0.8);
+            &:hover{
+                @include buttonhov(white);
+                transform: scale(1)
+            }
+        }
+        .button{
+            @include align(center,none,none );
+            display: inline;
+            font-size: larger;
+            border-radius: 1rem;
+            width: 20%;
+            padding: 1rem 1.5rem;
+            // border: 1px solid;
+            margin: 0.5rem ;
+            transition: all 0.3s;
+            &:hover{
+                @include buttonhov(white);
+            }
+        }
+        .clearbox{
+            @include align(center,center ,center );
+        }
+        .clear{
+            font-weight: bolder;
+            border-radius: 1rem;
+            padding:2rem  1rem;
+            border: 2px solid;
+            margin: 1rem auto;
+            &:hover{
+                @include buttonhov(white);
+                transform: scale(1.1);
+            }
+        }
+        .block-last{
+            padding: 0.7rem;
+            @include align(right,none ,none )
         }
     }
 }
