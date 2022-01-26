@@ -178,6 +178,10 @@ body::after {
   display: flex;
 }
 
+.calcbox .buttonbox .numberbox {
+  margin: auto 0.5rem;
+}
+
 .calcbox .buttonbox .block {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -280,5 +284,12 @@ body::after {
   -webkit-box-pack: none;
       -ms-flex-pack: none;
           justify-content: none;
+}
+
+@media (max-width: 970px) {
+  .button {
+    max-width: 0.5%;
+    background-color: #dd1818;
+  }
 }
 /*# sourceMappingURL=style.css.map */

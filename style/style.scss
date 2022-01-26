@@ -154,13 +154,17 @@ html::-webkit-scrollbar-thumb{
     .buttonbox{
         @include align(center,center,center);
         display: flex;
-        .block{
-            justify-content: space-between;
-            margin-top: 1rem;
-            // .equal{
-            //     padding: 1rem 1.2rem;
-            // }
+        .numberbox{
+            margin: auto 0.5rem;
+            .block{
+                justify-content: space-between;
+                margin-top: 1rem;
+                // .equal{
+                //     padding: 1rem 1.2rem;
+                // }
+            }
         }
+        
         .operatorbox{
             @include align(center,center ,center );
             padding: 0.5rem;
@@ -207,5 +211,21 @@ html::-webkit-scrollbar-thumb{
             margin-top: 1rem;
             @include align(right,none ,none )
         }
+    }
+}
+$breakpoint : 970px;
+@media (max-width:$breakpoint) {
+    .button{
+        //  @include align(center,none,none );
+        //     display: inline;
+        //     font-size: larger;
+        //     border-radius: 1rem;
+        //     padding: 1rem 1.5rem;
+        //     transition: all 0.3s;
+        //     &:hover{
+        //         @include buttonhov(rgba(255,255,255,0.3));
+        //     }
+        max-width: 0.5%;
+        background-color: #dd1818;
     }
 }

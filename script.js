@@ -48,6 +48,8 @@ function backspacehandler(){
     printoutput(output);
     if(output == "-"){
         printoutput("");
+    }else if (output=="∞"){
+        printoutput("");
     }
 }
 
@@ -62,27 +64,37 @@ function numberhandler(){
 function addhandler(){
     var output = reverseformatnum(getoutput());
     var history = gethistory();
-    if(output!="" || output==0){
+    if(output!=""){
     output = output+"+";
     // var history= gethistory();
     printhistory(history+output);
     printoutput("");
     }
     else if(output==""&& history!=""){
-        
-        if(isNaN(history[history.length-1])){
-            history = history.substring[0,history.length-1];
-            history = history+"+";
-        }
+        printoutput
     }
 }
 function subhandler(){
     var output = reverseformatnum(getoutput());
-    if(output!="" || output==0){
+    var minus= getoutput();
+    if(output!=""){
     output = output+"-";
     var history= gethistory();
     printhistory(history+output);
     printoutput("");
+    }
+    else if(minus=="-"){
+    // var minus = getoutput();
+    // var history= gethistory();
+    // printhistory(history+output);
+    printoutput("-");
+    }
+    else if(output==""&& history!=""){
+        if(isNaN(history[history.length-1])){
+            history = history.substring[0,history.length-1];
+            history = history+"-";
+            printhistory(history);
+        }
     }
 }
 function mulhandler(){
@@ -94,6 +106,13 @@ function mulhandler(){
     printhistory(history+output);
     printoutput("");
     }
+    else if(output==""&& history!=""){
+        if(isNaN(history[history.length-1])){
+            history = history.substring[0,history.length-1];
+            history = history+"*";
+            printhistory(history);
+        }
+    }
 }
 function divhandler(){
     var output = reverseformatnum(getoutput());
@@ -103,7 +122,13 @@ function divhandler(){
     printhistory(history+output);
     printoutput("");
     }
-    
+    else if(output==""&& history!=""){
+        if(isNaN(history[history.length-1])){
+            history = history.substring[0,history.length-1];
+            history = history+"/";
+            printhistory(history);
+        }
+    }
 }
 function perchandler(){
     var output = reverseformatnum(getoutput());
@@ -117,7 +142,7 @@ function perchandler(){
 function equalhandler(){
     var output =reverseformatnum(getoutput());
     var history = gethistory();
-    if(output!=""){
+    if(output!="" || output==0){
         var evalu =eval(history + output);
         if(evalu == 0){
             printoutput("0");
