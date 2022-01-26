@@ -13,19 +13,38 @@ html::-webkit-scrollbar-thumb{
     border-radius: 0.2rem;
 }
 
-
-
  body{
      margin: 0;
      padding: 0;
      width: 100%;
      min-height: 100%;
      background: linear-gradient(45deg, rgba(127,30,193,1) 25%, rgba(253,29,29,1) 82%);
-     //  background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/resources/backimg.jpg);
-    //  font-family: 'Lora', serif;
     font-family: 'Roboto Slab', serif;
+    &::before{
+        content: "";
+        background: #ad5389;  
+        background: -webkit-linear-gradient(to right, #3c1053, #ad5389); 
+        background: linear-gradient(to right, #3c1053, #ad5389); 
+        position: fixed;
+        padding: 4.5rem;
+        z-index: -1;
+        border-radius: 50%;
+        top: -1rem;
+        right: 18rem;
+    }
+    &::after{
+        content: "";
+        background: #ad5389; 
+        background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  
+        background: linear-gradient(to right, #3c1053, #ad5389); 
+        position: fixed;
+        padding: 3rem;
+        z-index: -1;
+        border-radius: 50%;
+        bottom: 3rem;
+        left: 19rem;
+    }
  }
-
 
 @mixin align($textalign,$alignitems,$justifycont){
     text-align: $textalign;
@@ -36,20 +55,73 @@ html::-webkit-scrollbar-thumb{
 @mixin buttonhov($backcolor){
     background-color:$backcolor;
     cursor: pointer;
+    box-shadow: rgba(0,0,0,0.1);
     transition: all 0.4s;
 }
 .box{
-    background: linear-gradient(45deg, rgba(127,30,193,1) 25%, rgba(253,29,29,1) 82%);
     height: 100vh;
     width: 100%;
+    &::before{
+        content: "";
+        background: #333333;  
+        background: -webkit-linear-gradient(to right, #dd1818, #333333);
+        background: linear-gradient(to right, #dd1818, #333333);
+        z-index: -1;
+        position: fixed;
+        top: -18rem;
+        left: 10rem;
+        padding: 15rem;
+        border-radius: 50%;
+    }
+    &::after{
+        content: "";
+        background: #333333; 
+        background: -webkit-linear-gradient(to right, #dd1818, #333333);  
+        background: linear-gradient(to right, #dd1818, #333333); 
+        z-index: -1;
+        position: fixed;
+        bottom: -2rem;
+        right: 13rem;
+        padding: 9rem;
+        border-radius: 50%;
+    }
+    .bubble{
+        &::after{
+        content: "";
+        background: #ad5389;  
+        background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  
+        background: linear-gradient(to right, #3c1053, #ad5389); 
+        position: fixed;
+        padding: 1rem;
+        z-index: -2;
+        border-radius: 50%;
+        top: 6rem;
+        right: 18rem;
+        }
+        &::before{
+        content: "";
+        background: #ad5389; 
+        background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  
+        background: linear-gradient(to right, #3c1053, #ad5389); 
+        position: fixed;
+        padding: 6rem;
+        z-index: -1;
+        border-radius: 50%;
+        top: 7rem;
+        left: 10rem;
+        }
+    }
 }
 .calcbox{
     @include align(center,center,center);
-    margin: 4rem auto;
-    border: solid;
+    margin: 5rem auto;
     border-radius: 1rem;
     max-width:35%;
     padding: 1rem;
+    z-index: 10;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
     .resultbox{
         @include align(right,none,none);
         text-align: right;
@@ -58,10 +130,11 @@ html::-webkit-scrollbar-thumb{
         margin: auto;
     }
     .historybox{
+        max-width: 100%;
         min-height: 2rem;
         .historytext{
             font-size:medium;
-            color: rgb(80, 69, 69);
+            color:rgb(34, 32, 32);
         }
     }
     
@@ -79,30 +152,28 @@ html::-webkit-scrollbar-thumb{
         width: 100%;
     }
     .buttonbox{
-        
         @include align(center,center,center);
         display: flex;
         .block{
             justify-content: space-between;
-            // padding: 2rem;
-            margin: 1rem;
-            .equal{
-                padding: 1rem 1.2rem;
-            }
+            margin-top: 1rem;
+            // .equal{
+            //     padding: 1rem 1.2rem;
+            // }
         }
         .operatorbox{
             @include align(center,center ,center );
             padding: 0.5rem;
         }
         .operator{
-            border: 2px solid;
+            border: 1.5px solid;
             border-radius: 50%;
             text-align: center;
-            margin: 1rem auto;
+            margin-top: 0.5rem;
             padding: 1rem 1.3rem;
             transform: scale(0.8);
             &:hover{
-                @include buttonhov(white);
+                @include buttonhov(rgba(255,255,255,0.3));
                 transform: scale(1)
             }
         }
@@ -111,13 +182,10 @@ html::-webkit-scrollbar-thumb{
             display: inline;
             font-size: larger;
             border-radius: 1rem;
-            width: 20%;
             padding: 1rem 1.5rem;
-            // border: 1px solid;
-            margin: 0.5rem ;
             transition: all 0.3s;
             &:hover{
-                @include buttonhov(white);
+                @include buttonhov(rgba(255,255,255,0.3));
             }
         }
         .clearbox{
@@ -127,15 +195,16 @@ html::-webkit-scrollbar-thumb{
             font-weight: bolder;
             border-radius: 1rem;
             padding:2rem  1rem;
-            border: 2px solid;
+            border: 1.5px solid;
             margin: 1rem auto;
             &:hover{
-                @include buttonhov(white);
+                @include buttonhov(rgba(255,255,255,0.3));
                 transform: scale(1.1);
             }
         }
         .block-last{
-            padding: 0.7rem;
+            // padding: 0.7rem;
+            margin-top: 1rem;
             @include align(right,none ,none )
         }
     }
